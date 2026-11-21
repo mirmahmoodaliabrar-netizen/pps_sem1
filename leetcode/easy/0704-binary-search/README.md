@@ -43,30 +43,32 @@ Explanation: 2 does not exist in nums so return -1
 
 **Language:** C  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 9.8 MB (beats 70.48%)  
-**Submitted:** 2026-11-20T07:07:59.990Z  
+**Memory:** 10 MB (beats 48.68%)  
+**Submitted:** 2026-11-21T06:26:10.452Z  
 
 ```c
-int search(int* nums, int numsSize, int target) {
-    int left = 0;
-    int right = numsSize - 1;
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+int search(int* nums, int numsSize, int target) {
+    int low = 0;
+    int high = numsSize - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
 
         if (nums[mid] == target) {
             return mid;
         }
         else if (nums[mid] < target) {
-            left = mid + 1;
+            low = mid + 1;
         }
         else {
-            right = mid - 1;
+            high = mid - 1;
         }
     }
 
     return -1;
 }
+
 ```
 
 ---
